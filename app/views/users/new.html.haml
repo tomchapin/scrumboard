@@ -1,9 +1,2 @@
-= semantic_form_for @user do |f|
-  = f.input :first_name, required: true
-  = f.input :last_name, required: true
-  = f.input :password, required: true, as: :password
-  = f.input :password_confirmation, required: true, as: :password
-
-  = f.actions do
-    = f.action :submit, :as => :button
-    = f.action :cancel, :as => :link
+%h1 New User
+= render 'form'

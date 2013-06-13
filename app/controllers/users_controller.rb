@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  def index
-  end
+
+  skip_before_filter :require_login, only: [:new, :create]
 
   def new
     @user = User.new
@@ -8,7 +8,6 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new params[:user]
-    binding.pry
     if @user.save
       redirect_to :root
     else
@@ -17,11 +16,15 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = current_user
+  end
+
+  def show
+    @user = current_user
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = current_user
     if @user.update_attributes(params[:user])
       render :show
     else
