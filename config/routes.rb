@@ -1,4 +1,29 @@
 Scrumboard::Application.routes.draw do
+
+  get "users/index"
+
+  get "users/new"
+
+  get "users/create"
+
+  get "users/edit"
+
+  get "users/update"
+
+  get "users/destroy"
+
+  get "sessions/new"
+
+  get "sessions/create"
+
+  get "sessions/destroy"
+
+  resources :users
+
+  get 'login' => 'sessions#new'
+  post 'login' => 'sessions#create'
+  get 'logout' => 'sessions#destroy'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
