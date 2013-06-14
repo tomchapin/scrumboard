@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20130613021019) do
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
+    t.date     "post_date"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
