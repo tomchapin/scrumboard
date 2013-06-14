@@ -1,5 +1,5 @@
 class UserSession
-  extend ActiveModel::Naming
+  include ActiveModel::Model
   attr_accessor :email, :password
 
   def initialize(attrs={})
